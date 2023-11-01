@@ -2,7 +2,7 @@ const Wallet = require("ethereumjs-wallet");
 const fs = require("fs");
 
 const generate = () => {
-  let w = Wallet.default.generate();
+  let w = Wallet.default.generateVanityAddress();
   let data = {
     hex:{
         address: w.getAddressString(),
@@ -20,7 +20,6 @@ const generate = () => {
   fs.writeFileSync(`wallet/wallet-${name}.json`, JSON.stringify(data));
   return w;
 };
-
 
 
 module.exports = { generate };
